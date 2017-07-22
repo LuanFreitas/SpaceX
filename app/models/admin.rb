@@ -1,5 +1,13 @@
 class Admin < ActiveRecord::Base
-	enum role: [:full_access, :restricted_access] 
+ 	# Constants
+ 	ROLES = {:full_access => 0, :restricted_access => 1}
+
+ 	enum role: ROLES
+
+ 	# Scopes
+ 	scope :with_full_access, -> { where(role: ROLES[:full_access]) }
+ 	scope :with_restricted_access, -> { where(role: ROLES[:restricted_access]) }
+ 	
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,7 +15,7 @@ class Admin < ActiveRecord::Base
   
  validates_confirmation_of :password 
 
- def role_desc
+ def role_br
  	if self.role == 'full_access'
  		'Acesso Completo'
  	else
