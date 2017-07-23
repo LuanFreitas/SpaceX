@@ -5,6 +5,7 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v2'
+gem 'enum_help'
 source 'https://rails-assets.org' do
 	gem 'rails-assets-bootstrap', '3.3.7'
 	gem 'rails-assets-notifyjs'
