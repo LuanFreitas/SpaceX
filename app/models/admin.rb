@@ -14,12 +14,4 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
  validates_confirmation_of :password 
-
- def role_br
- 	if self.role == 'full_access'
- 		'Acesso Completo'
- 	else
- 		'Acesso Restrito'
- 	end
- end
 end
